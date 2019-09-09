@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Blog App</title>
+        <link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+        <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="code icon"></i>Bloggers Inc.</div>
+                <a href="/" class="item">Home</a>
+                <a href="/blogs/new" class="item">New Post</a>
+                <% if(currentUser){ %>
+                    <a href="/blogs/myblogs/<%= currentUser._id %>" class="item">My blogs</a>
+                <% } %>
+                <div class="right menu">
+                    <% if(!currentUser){ %>
+                    <div class="item">
+                        <a href="/login">Login</a>
+                    </div>
+                    <div class="item">
+                        <a href="/register">SignUp</a>
+                    </div>
+                    <% } else { %>
+                    <div class="item">
+                        <a href="/users/myprofile/<%=currentUser._id%>"><%= currentUser.username %></a>
+                    </div>
+                    <div class="item">
+                        <a href="/logout">Logout</a>
+                    </div>
+                    <% } %>
+                    <form action="/results" method="GET">
+                        <div class="item">
+                            <div class="ui icon input">
+                                <input type="text" placeholder="Search..." name="search">
+                                <i class="search link icon"></i>
+                            </div>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="ui container">
+                <% if(error && error.length > 0){ %>
+                    <div class="ui negative message" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <% if(success && success.length > 0){ %>
+                    <div class="ui success message" role="alert">
+                        <%= success %>
+                    </div>
+                <% } %>
+        </div>

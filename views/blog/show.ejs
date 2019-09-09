@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+<div class="ui main text container segment" style="margin-top: 40px">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached ">
+        <div class="item">
+            <% if(blog.image){%>
+                <img class="ui centered rounded image" src="<%= blog.image %>" >
+            <% } %>
+            <div class="content">
+               Posted on <span><%= blog.created.toDateString() %></span> by <span><a href="/users/<%= blog.author.id %>"><%= blog.author.username %></a></span>
+            </div>
+            <div class="description">
+                <p><%- blog.body %></p>
+            </div>
+            <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
+            <a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+            <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete</button>
+            </form>
+            <% } %>
+            <hr>
+            <span>Comments</span>
+            <a href="/blogs/<%= blog._id %>/comments/new" class="ui right floated green button">Add a comment</a>
+            <hr>
+            <% blog.comments.forEach(function(comment){ %>
+                    <strong><%=comment.author.username %></strong>
+                    <span style="float: right"><%=comment.created.toDateString()%></span>
+                    <p style="margin: 0"><%=comment.text %></p>
+                    <div style="margin-bottom: 20px">
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <a class="ui orange basic button" 
+                                href="/blogs/<%=blog._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/blogs/<%=blog._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="ui red basic button" value="Delete">
+                            </form>
+                        <% } %>
+                    </div>
+            <% }) %>
+        </div>
+    </div>
+    
+</div>
+<% include ../partials/footer %>

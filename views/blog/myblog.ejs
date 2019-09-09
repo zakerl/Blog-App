@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div class="ui top  attached segment" style="margin-top: 40px">
+        <div class="ui divided items">
+            <% if(user.blogs.length!==0){ %>
+                <% user.blogs.forEach(function(blog){ %>
+                    <div class="item">
+                        <div class="image">
+                            <% if(blog.image){ %>
+                                <img src="<%= blog.image %>" >
+                            <% } %>
+                        </div>
+                        <div class="content">
+                            <a class="header" href="/blogs/<%= blog._id %>"><%=blog.title%></a>
+                            <div class="meta">
+                                Posted on <em><span><%= blog.created.toDateString() %></span> by <%=blog.author.username %></em> 
+                            </div>
+                            <% if(blog.body){%>
+                                <div class="description">
+                                        <p><%- blog.body.substring(0, 100) %>...</p>
+                                </div>
+                            <% } %>
+                            <div class="extra">
+                                <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
+                                    Read More
+                                    <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% }else{ %>
+                <h5>You have no blogs to show</h5>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

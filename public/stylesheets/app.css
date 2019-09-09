@@ -1,0 +1,54 @@
+body {
+    padding: 30px;
+    max-width: 800px;
+	margin: 20px auto;
+    font-family: Source Sans Pro;
+    border-bottom: 0
+}
+
+h2 {
+	color: #2c3e50;
+	font-size: 2.0rem;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.quote {
+	border-left: 5px solid #bdc3c7;
+	padding-left: 5px;
+}
+
+.date {
+	color: #3498db;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+}
+
+.post {
+	margin-bottom: 20px;
+}
+.ui.segment:last-child {
+    margin: 0;
+}
+#delete{
+    display: inline;
+}
+body{
+	background-color: #DCDCDC
+}
+.ui.segment:last-child {
+    margin: 0;
+}
+.ui.attached.success.message, .ui.success.message {
+    margin-bottom: 10px;
+}
+.ui.green.button, .ui.green.buttons .button {
+    padding: 8px;
+}
+#delete-form{
+    display: inline;
+}

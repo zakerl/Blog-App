@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Blog App</title>
+        <link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+        <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body style="border: 0">
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="code icon"></i>Bloggers Inc.</div>
+
+                <div class="right menu">
+                    <div class="item">
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui container">
+                <% if(error && error.length > 0){ %>
+                    <div class="ui negative message" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <% if(success && success.length > 0){ %>
+                    <div class="ui success message" role="alert">
+                        <%= success %>
+                    </div>
+                <% } %>
+        </div>
+        <div class="ui container" style="margin: 30px auto">
+            <form action="/register" method="POST">
+                <div class="ui form segment">
+                    <h3 style="text-align: center">SignUp!</h3>
+                    <div class="fields">
+                        <div class="field">
+                          <label>First name</label>
+                          <input type="text" name="firstname" placeholder="First Name" required>
+                        </div>
+                        <div class="field">
+                          <label>Last name</label>
+                          <input type="text" name="lastname" placeholder="Last Name" required>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="email" required>
+                        </div>
+                        <div class="field">
+                          <label>Sex</label>
+                          <select name="sex" required>
+                              <option>M</option>
+                              <option>F</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Username</label>
+                            <input type="text" name="username" placeholder="username" required>
+                        </div>
+                        <div class="field">
+                            <label>Password</label>
+                            <input type="password" name="password" placeholder="password" required>
+                        </div>
+                        <div class="field">
+                            <label>Avatar</label>
+                            <input type="text" name="avatar" placeholder="avatar image" required>
+                        </div>
+                    </div>
+                    <p><input type="submit" class="ui primary button"></p>
+                </div>  
+            </form>
+        </div>
+    </body>
+</html>

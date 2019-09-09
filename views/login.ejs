@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Blog App</title>
+        <link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+        <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body style="border: 0">
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="code icon"></i>Bloggers Inc.</div>
+                <div class="right menu">
+                    <div class="item">
+                        <a href="/register">SignUp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui container">
+                <% if(error && error.length > 0){ %>
+                    <div class="ui negative message" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <% if(success && success.length > 0){ %>
+                    <div class="ui success message" role="alert">
+                        <%= success %>
+                    </div>
+                <% } %>
+        </div>
+        <div class="ui container" style="margin: 30px auto">
+                <form action="/login" method="POST">
+                    <div class="ui form">
+                                <div class="fields">
+                                        <div class="field">
+                                                <h3 style="text-align: center">Login!</h3>
+                                                <div class="field">
+                                                    <label>Username</label>
+                                                    <input type="text" name="username" placeholder="username" required>
+                                                </div>
+                                                <div class="field">
+                                                    <label>Password</label>
+                                                    <input type="password" name="password" placeholder="password" required>
+                                                </div>
+                                                <p style="margin-top: 10px">
+                                                    <input type="submit" class="ui primary button">
+                                                </p>
+                                        </div>
+                                        <div class="field">
+                                                <div class="field">
+                                                        <div id="blog-form" class="segment" style="background-color: white; border: 1px solid black; padding:10px; margin-top: 10%; margin-left: 20%">
+                                                           <h4 style="text-align: center">Blog Site</h4> 
+                                                           <ul>
+                                                               <li>One of the most interactive blogsites</li>
+                                                               <li>Make as many responsive blogs, and edit them whenever</li>
+                                                           </ul>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                    </div>  
+                </form>                        
+        </div>
+    </body>
+</html>

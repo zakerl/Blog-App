@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div class="ui top  attached segment">
+        <div class="ui divided items">
+            <% users.forEach(function(user){ %>
+                <div class="ui card">
+                  <div class="image">
+                    <img src="<%=user.avatar %>">
+                  </div>
+                  <div class="content">
+                    <a class="header" href="/users/<%=user.id%>"><%= user.username %></a>
+                  </div>
+                  <div class="extra content">
+                    <a>
+                      <i class="book icon"></i>
+                      <%= user.blogs.length %> blogs
+                    </a>
+                  </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/header %>
