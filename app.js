@@ -296,6 +296,6 @@ function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.IP, process.env.PORT, function(){
     console.log("SERVER IS RUNNING!");
 })
